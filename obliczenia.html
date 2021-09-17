@@ -22,13 +22,14 @@
     </div>
     <main>
         <h3>Oblicz koszt paliwa</h3>
-        <label for="rodzajPaliwa">Rodzaj paliwa (1-benzuna, 2-olej nępedowy):</label>
-        <input type="number" name="" id="rodzajPaliwa">
-        <label for="litry">Ile litrów</label>
-        <input type="number" name="" id="litry">
-        <button>Oblicz</button>
+        <label for="rodzajPaliwa">Rodzaj paliwa (1-benzuna, 2-olej nępedowy):</label><br>
+        <input type="number" name="" id="rodzajPaliwa"><br>
+        <label for="litry">Ile litrów</label><br>
+        <input type="number" name="" id="litry"><br>
+        <button onclick="oblicz()">Oblicz</button>
+        <p id="wynik"></p>
     </main>
-    <div id="blok-prawy">
+    <div id="blok-lewy">
         <a href="kwerendy.txt">Pobierz kwerendy</a>
     </div>
     <div id="blok-prawy">
@@ -37,5 +38,27 @@
     <footer>
         <p>Stronę opracował: 02250602079</p>
     </footer>
+    <script>
+        function oblicz() {
+            var rodzaj = document.getElementById('rodzajPaliwa').value;
+            rodzaj = parseInt(rodzaj);
+            var ilosc = document.getElementById('litry').value;
+            ilosc = parseInt(ilosc);
+            var koszt = 0;
+            switch (rodzaj) {
+                case 1:
+                    koszt = ilosc * 4;
+                    break;
+                case 2:
+                       koszt = ilosc * 3.5;
+                       break;
+                default:
+                       koszt = 0;
+                      break;
+            }
+            document.getElementById('wynik').innerHTML =  
+                 "koszt paliwa: " + koszt + " zł";
+        }
+    </script>
 </body>
 </html>
